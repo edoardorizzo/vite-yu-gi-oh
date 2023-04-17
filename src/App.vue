@@ -19,7 +19,8 @@ export default {
         .get(url)
         .then(response => {
           console.log(response);
-          this.card = response.data.data;
+          this.cards = response.data.data;
+          console.log(this.cards);
         })
     }
   },
@@ -34,12 +35,16 @@ export default {
 
   <SiteMain></SiteMain>
 
-  <div class="card" v-for=" (card, index) in cards">
-    <div class="card_image">
-      <img :src="card.data.data[index].card_images[0]" alt="">
+  <div class="container">
+    <div class="row">
+      <div class="card" v-for="card in cards">
+        <div class="card_image">
+          <img :src="card.card_images[0].image_url" :alt="card.name">
+        </div>
+        <h4> {{ card.name }} </h4>
+        <div> {{ card.type }} </div>
+      </div>
     </div>
-    <h4> Nome Carta </h4>
-    <div> Tipologia </div>
   </div>
 </template>
 
