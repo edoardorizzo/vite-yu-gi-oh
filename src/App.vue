@@ -41,8 +41,8 @@ export default {
           <img :src="card.card_images[0].image_url" :alt="card.name">
         </div>
         <div class="card_text">
-          <h6> {{ card.name }} </h6>
-          <div> {{ card.type }} </div>
+          <h6> {{ cards.name }} </h6>
+          <div> {{ cards.type }} </div>
         </div>
       </div>
     </div>
@@ -57,7 +57,7 @@ export default {
 .container {
   margin: auto;
 
-  .row{
+  .row {
     justify-content: space-between;
   }
 }
@@ -78,12 +78,12 @@ export default {
     }
   }
 
-  h6{
+  h6 {
     font-size: 16px;
     font-weight: bold;
   }
 
-  div{
+  div {
     font-size: 14px;
   }
 }

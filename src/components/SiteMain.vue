@@ -1,13 +1,23 @@
 <script>
+import SiteCard from './SiteCard.vue';
 export default {
     name: 'SiteMain',
+    components:{
+      SiteCard,
+    },
+    data(){
+      return{
+        
+      }
+    },
+    props: {
+      cards: Array,
+    },
 }
 </script>
 
 <template>
-    <main>
-        
-    </main>
+   
 </template>
 
 <style lang="scss" scoped>
