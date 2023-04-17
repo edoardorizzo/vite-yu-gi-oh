@@ -3,7 +3,7 @@
         name: 'SiteHeader',
         data(){
             return{
-                
+
             }
         }
     }
@@ -33,6 +33,9 @@
 @use '../partials/varibles.scss' as *;
 
 header {
+    .container{
+        margin: auto;
+    }
   .logo_container {
     width: 120px;
     height: 80px;
