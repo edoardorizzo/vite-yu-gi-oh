@@ -8,16 +8,20 @@ export default {
     <main>
         <div class="container">
             <div class="row">
-                <div class="card">
-                    <div class="card_image">
-                        <img src="" alt="">
-                    </div>
-                    <h4> Nome Carta </h4>
-                    <div> Tipologia </div>
-                </div>
+                
             </div>
         </div>
     </main>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@use '../partials/varibles.scss' as *;
+
+main {
+  background-color: $opacity-black;
+  fill-opacity: (10%);
+  border-radius: 0.5rem;
+  max-width: 900px;
+  margin: auto;
+}
+</style>

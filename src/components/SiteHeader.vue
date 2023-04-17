@@ -51,6 +51,7 @@ header {
     padding: 0.5rem;
     background-color: $red;
     border: none;
+    border-radius: 0.5rem;
     color: $white;
   }
 }
