@@ -1,4 +1,5 @@
 <script>
+import { state } from '../state.js';
 import SiteCard from './SiteCard.vue';
 export default {
   name: 'SiteMain',
@@ -7,25 +8,42 @@ export default {
   },
   data() {
     return {
-      cards: null,
-      API_URL: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?cardset=metal%20raiders&num=10&offset=0',
+      state
     }
+  },
+  mounted() {
+    this.state.fetchCards(this.state.API_URL);
   },
 }
 </script>
 
 <template>
-  <SiteCard></SiteCard>
+  <main>
+    <div class="container">
+      <h4> Total cards: </h4>
+    </div>
+    <div class="container">
+      <div class="row">
+        <SiteCard v-for="card in state.cards" :card="card"></SiteCard>
+      </div>
+    </div>
+  </main>
 </template>
 
 <style lang="scss" scoped>
 @use '../partials/varibles.scss' as *;
 
 main {
-  background-color: $opacity-black;
-  fill-opacity: (10%);
-  border-radius: 0.5rem;
-  max-width: 900px;
+.container{
   margin: auto;
 }
+
+  h4{
+    color: $white;
+    background-color: $opacity-black;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+}
+
 </style>
