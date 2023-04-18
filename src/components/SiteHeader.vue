@@ -1,9 +1,10 @@
 <script>
+import { state } from '../state.js';
     export default {
         name: 'SiteHeader',
         data(){
             return{
-
+              state
             }
         }
     }

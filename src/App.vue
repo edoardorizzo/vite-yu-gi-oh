@@ -1,4 +1,5 @@
 <script>
+import { state } from './state.js';
 import axios from 'axios';
 import SiteHeader from './components/SiteHeader.vue';
 import SiteMain from './components/SiteMain.vue';
@@ -9,8 +10,7 @@ export default {
   },
   data() {
     return {
-      cards: null,
-      API_URL: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?cardset=metal%20raiders&num=10&offset=0',
+      state
     }
   },
   methods: {
@@ -19,12 +19,14 @@ export default {
         .get(url)
         .then(response => {
           console.log(response);
-          this.cards = response.data.data;
+          state.cards = response.data.data;
+          state.meta = response.data.meta;
+          console.log(this.cards);
         })
     }
   },
   mounted() {
-    this.callApi(this.API_URL);
+    this.callApi(state.API_URL);
   }
 }
 </script>
@@ -36,13 +38,13 @@ export default {
 
   <div class="container">
     <div class="row">
-      <div class="card" v-for="card in cards">
+      <div class="card" v-for="card in state.cards">
         <div class="card_image">
           <img :src="card.card_images[0].image_url" :alt="card.name">
         </div>
         <div class="card_text">
-          <h6> {{ cards.name }} </h6>
-          <div> {{ cards.type }} </div>
+          <h6> {{ card.name }} </h6>
+          <div> {{ card.type }} </div>
         </div>
       </div>
     </div>
