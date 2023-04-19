@@ -20,7 +20,7 @@ export default {
 <template>
   <main>
     <div class="container">
-      <h4> Total cards: </h4>
+      <h4 v-if="state.cards"> Total card: {{ state.cards.length }} </h4>
     </div>
     <div class="container">
       <div class="row">
